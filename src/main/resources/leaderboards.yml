@@ -1,0 +1,96 @@
+# AvenoxLeaderboard board definitions.
+#
+# The seven boards below back the default GUI (see gui.yml's `main.buttons`) and use the
+# new `source:` key to say where their value comes from - PLACEHOLDER (the original generic
+# engine, default when `source:` is omitted), STATISTIC (a plain Bukkit statistic), VAULT
+# (an economy balance, resolved through PlaceholderAPI's Vault expansion - no direct VaultAPI
+# dependency), or COUNTER (maintained by this plugin's own event listeners with atomic DB
+# increments: blocks-mined, blocks-placed, mob-kills).
+#
+# You can still add your own custom PLACEHOLDER-based boards below the seven - the backend
+# engine is unchanged and fully supports it, they just won't appear in the default GUI unless
+# you also add a button for them in gui.yml's `main.buttons`. Open any board directly with
+# /leaderboard open <id> regardless of whether it's in the GUI.
+
+leaderboards:
+  kills:
+    display-name: "&#ff6b6bKills"
+    source: STATISTIC
+    statistic: PLAYER_KILLS
+    type: INTEGER
+    order: DESC
+    timed: ALL_TIME
+    update-interval: 30
+    max-entries: 100
+    enabled: true
+
+  deaths:
+    display-name: "&#c084fcDeaths"
+    source: STATISTIC
+    statistic: DEATHS
+    type: INTEGER
+    order: DESC
+    timed: ALL_TIME
+    update-interval: 30
+    max-entries: 100
+    enabled: true
+
+  money:
+    display-name: "&#55d6beMoney"
+    source: VAULT
+    type: NUMBER
+    order: DESC
+    timed: ALL_TIME
+    update-interval: 30
+    max-entries: 100
+    enabled: true
+    formatting:
+      mode: COMMA
+      prefix: "$"
+
+  blocks-mined:
+    display-name: "&#60a5faBlocks Mined"
+    # Event-driven counter, not Statistic.MINE_BLOCK - see README for why (that statistic is
+    # per-Material with 300+ values; summing it every refresh cycle for every online player
+    # doesn't scale the way a simple running total does).
+    source: COUNTER
+    type: INTEGER
+    order: DESC
+    timed: ALL_TIME
+    update-interval: 30
+    max-entries: 100
+    enabled: true
+
+  blocks-placed:
+    display-name: "&#f59e0bBlocks Placed"
+    source: COUNTER
+    type: INTEGER
+    order: DESC
+    timed: ALL_TIME
+    update-interval: 30
+    max-entries: 100
+    enabled: true
+
+  playtime:
+    display-name: "&#38bdf8Playtime"
+    source: STATISTIC
+    statistic: PLAY_ONE_MINUTE
+    # PLAY_ONE_MINUTE reports in ticks (20/sec), not seconds - divide-by converts it before
+    # storage/display so `type: TIME` formatting ("125h 34m") is correct rather than 20x too long.
+    divide-by: 20
+    type: TIME
+    order: DESC
+    timed: ALL_TIME
+    update-interval: 60
+    max-entries: 100
+    enabled: true
+
+  mob-kills:
+    display-name: "&#a3e635Mobs Killed"
+    source: COUNTER
+    type: INTEGER
+    order: DESC
+    timed: ALL_TIME
+    update-interval: 30
+    max-entries: 100
+    enabled: true

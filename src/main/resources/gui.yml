@@ -1,0 +1,285 @@
+# AvenoxLeaderboard GUI configuration
+# GUI version 7
+# Primary accent palette uses clean hex colors; individual boards use their own accent.
+
+gui-version: 7
+
+colors:
+  title: "&8"
+  primary: "&#55d6be"
+  secondary: "&#9aa4b2"
+  value: "&#60a5fa"
+  accent: "&#c084fc"
+  error: "&#ff6b6b"
+
+decoration:
+  enabled: true
+  material: GRAY_STAINED_GLASS_PANE
+
+main:
+  title: "&8Leaderboards"
+  size: 27
+  buttons:
+    money:
+      slot: 10
+      material: GOLD_INGOT
+      name: "&#55d6be&lMONEY LEADERBOARD"
+      lore:
+        - ""
+        - "&#55d6beInformation"
+        - "&7View the players with the highest"
+        - "&7balances on the server."
+        - ""
+        - "&#55d6be➜ &fClick to view leaderboard"
+
+    kills:
+      slot: 11
+      material: IRON_SWORD
+      name: "&#ff6b6b&lKILLS LEADERBOARD"
+      lore:
+        - ""
+        - "&#55d6beInformation"
+        - "&7View the players with the most"
+        - "&7player kills on the server."
+        - ""
+        - "&#55d6be➜ &fClick to view leaderboard"
+
+    deaths:
+      slot: 12
+      material: SKELETON_SKULL
+      name: "&#c084fc&lDEATHS LEADERBOARD"
+      lore:
+        - ""
+        - "&#55d6beInformation"
+        - "&7View the players with the highest"
+        - "&7number of deaths."
+        - ""
+        - "&#55d6be➜ &fClick to view leaderboard"
+
+    blocks-mined:
+      slot: 13
+      material: DIAMOND_PICKAXE
+      name: "&#60a5fa&lBLOCKS MINED"
+      lore:
+        - ""
+        - "&#55d6beInformation"
+        - "&7View the players who have mined"
+        - "&7the most blocks."
+        - ""
+        - "&#55d6be➜ &fClick to view leaderboard"
+
+    blocks-placed:
+      slot: 14
+      material: BRICKS
+      name: "&#f59e0b&lBLOCKS PLACED"
+      lore:
+        - ""
+        - "&#55d6beInformation"
+        - "&7View the players who have placed"
+        - "&7the most blocks."
+        - ""
+        - "&#55d6be➜ &fClick to view leaderboard"
+
+    playtime:
+      slot: 15
+      material: CLOCK
+      name: "&#38bdf8&lPLAYTIME LEADERBOARD"
+      lore:
+        - ""
+        - "&#55d6beInformation"
+        - "&7View the players with the highest"
+        - "&7total playtime."
+        - ""
+        - "&#55d6be➜ &fClick to view leaderboard"
+
+    mob-kills:
+      slot: 16
+      material: ZOMBIE_HEAD
+      name: "&#a3e635&lMOBS KILLED"
+      lore:
+        - ""
+        - "&#55d6beInformation"
+        - "&7View the players who have defeated"
+        - "&7the most hostile and passive mobs."
+        - ""
+        - "&#55d6be➜ &fClick to view leaderboard"
+
+board-view:
+  entries-per-page: 10
+  use-player-heads: true
+  entry-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21]
+  entry-lore:
+    - ""
+    - "%color%Information"
+    - "&7Rank: &f#%rank%"
+    - "&7Player: &f%player%"
+    - "&7%label%: %color%%value%"
+    - ""
+    - "%color%➜ &fClick to view player stats"
+
+  buttons:
+    back:
+      slot: 45
+      material: BARRIER
+      name: "&#9aa4b2&lRETURN"
+      lore:
+        - ""
+        - "&7Return to the leaderboard menu."
+        - ""
+        - "&#55d6be➜ &fClick to return"
+
+    previous:
+      slot: 48
+      material: ARROW
+      name: "&#60a5fa&lPREVIOUS PAGE"
+      lore:
+        - ""
+        - "&7View the previous page of entries."
+        - ""
+        - "&#55d6be➜ &fClick to go back"
+
+    sorting:
+      slot: 49
+      material: HOPPER
+      name: "&#c084fc&lSORT LEADERBOARD"
+      lore: []
+
+    next:
+      slot: 50
+      material: ARROW
+      name: "&#60a5fa&lNEXT PAGE"
+      lore:
+        - ""
+        - "&7View the next page of entries."
+        - ""
+        - "&#55d6be➜ &fClick to continue"
+
+    my-stats:
+      slot: 53
+      material: PLAYER_HEAD
+      name: "&#55d6be&lYOUR STATS"
+      lore:
+        - ""
+        - "&#55d6beInformation"
+        - "&7View your personal server statistics."
+        - "&7Kills, deaths, balance, playtime and more."
+        - ""
+        - "&#55d6be➜ &fClick to view your stats"
+
+top-icons:
+  1: NETHERITE_INGOT
+  2: GOLD_INGOT
+  3: IRON_INGOT
+
+# Personal statistics GUI. The layout intentionally follows the supplied reference:
+# profile at 10, statistics across 12-16 and 19-21, with the first-joined date at 20.
+stats:
+  title: "&8%player%'s Stats"
+  size: 27
+  items:
+    profile:
+      slot: 10
+      material: BLAZE_ROD
+      name: "&#55d6be&lPROFILE"
+      lore:
+        - "&7Player Stats"
+        - ""
+        - "&#55d6beInformation:"
+        - "&fView personal information, such as"
+        - "&fwhen you first joined the server."
+        - ""
+        - "&#f59e0b• &fFirst Joined: &f%first-joined%"
+
+    kills:
+      slot: 12
+      material: IRON_SWORD
+      name: "&#ff6b6b&lKILLS"
+      lore:
+        - ""
+        - "&#55d6beInformation:"
+        - "&7Total players defeated."
+        - ""
+        - "&#ff6b6b⚔ &fKills: &f%value%"
+
+    deaths:
+      slot: 13
+      material: SKELETON_SKULL
+      name: "&#c084fc&lDEATHS"
+      lore:
+        - ""
+        - "&#55d6beInformation:"
+        - "&7Total times you have died."
+        - ""
+        - "&#c084fc☠ &fDeaths: &f%value%"
+
+    money:
+      slot: 14
+      material: EMERALD
+      name: "&#55d6be&lBALANCE"
+      lore:
+        - ""
+        - "&#55d6beInformation:"
+        - "&7Your current server balance."
+        - ""
+        - "&#55d6be$ &fBalance: &f%value%"
+
+    playtime:
+      slot: 15
+      material: ENCHANTED_BOOK
+      name: "&#38bdf8&lPLAYTIME"
+      lore:
+        - ""
+        - "&#55d6beInformation:"
+        - "&7Total time spent playing on the server."
+        - ""
+        - "&#38bdf8◷ &fPlaytime: &f%value%"
+
+    mob-kills:
+      slot: 16
+      material: GOLD_INGOT
+      name: "&#a3e635&lMOBS KILLED"
+      lore:
+        - ""
+        - "&#55d6beInformation:"
+        - "&7Total non-player mobs defeated."
+        - ""
+        - "&#ff6b6b⚔ &fMobs Killed: &f%value%"
+
+    blocks-mined:
+      slot: 19
+      material: GRASS_BLOCK
+      name: "&#60a5fa&lBLOCKS MINED"
+      lore:
+        - ""
+        - "&#55d6beInformation:"
+        - "&7Total blocks successfully mined."
+        - ""
+        - "&#60a5fa⛏ &fBlocks Mined: &f%value%"
+
+    first-joined:
+      slot: 20
+      material: CLOCK
+      name: "&#f59e0b&lFIRST JOINED"
+      lore:
+        - ""
+        - "&#55d6beInformation:"
+        - "&7The date and time you first joined."
+        - ""
+        - "&#f59e0b• &fFirst Joined: &f%value%"
+
+    blocks-placed:
+      slot: 21
+      material: CACTUS
+      name: "&#f59e0b&lBLOCKS PLACED"
+      lore:
+        - ""
+        - "&#55d6beInformation:"
+        - "&7Total blocks successfully placed."
+        - ""
+        - "&#f59e0b▣ &fBlocks Placed: &f%value%"
+
+sounds:
+  open: BLOCK_CHEST_OPEN
+  click: UI_BUTTON_CLICK
+  page: ITEM_BOOK_PAGE_TURN
+  close: BLOCK_CHEST_CLOSE

@@ -1,0 +1,65 @@
+name: AvenoxLeaderboard
+version: '${project.version}'
+main: com.yourname.universalleaderboards.UniversalLeaderboardsPlugin
+api-version: '1.20'
+folia-supported: true
+author: yourname
+description: Avenox Leaderboard - PlaceholderAPI-driven leaderboards with a configurable modern GUI.
+
+# PlaceholderAPI handles all %vault_*% resolution itself once it hooks Vault, so this
+# plugin has no direct compile-time or runtime dependency on Vault and does not need to
+# soft-depend on it. LuckPerms is soft-depended purely for load-order safety around
+# LuckPermsHook's presence check.
+softdepend: [PlaceholderAPI, LuckPerms]
+
+commands:
+  leaderboard:
+    description: Open and manage leaderboards.
+    aliases: [lb, top]
+    usage: /<command> [help|open|list|info|reload|reset|resetall|update|set|remove|position|create|delete|edit|search]
+  stats:
+    description: View your own or another player's personal statistics.
+    aliases: [stat]
+    usage: /<command> [player]
+
+permissions:
+  universalleaderboards.use:
+    description: Allows using base leaderboard commands and GUI.
+    default: true
+  universalleaderboards.leaderboard:
+    description: Allows opening the leaderboard GUI (checked alongside .use, not instead of it).
+    default: true
+  universalleaderboards.stats:
+    description: Allows using /stats to view personal statistics.
+    default: true
+  universalleaderboards.stats.others:
+    description: Allows using /stats <player> and opening other players' profiles.
+    default: true
+  universalleaderboards.admin:
+    description: Grants all admin permissions.
+    default: op
+    children:
+      universalleaderboards.admin.reload: true
+      universalleaderboards.admin.reset: true
+      universalleaderboards.admin.create: true
+      universalleaderboards.admin.delete: true
+      universalleaderboards.admin.update: true
+  universalleaderboards.admin.reload:
+    default: op
+  universalleaderboards.admin.reset:
+    default: op
+  universalleaderboards.admin.create:
+    default: op
+  universalleaderboards.admin.delete:
+    default: op
+  universalleaderboards.admin.update:
+    default: op
+  universalleaderboards.bypass:
+    description: Bypasses GUI/board access restrictions.
+    default: op
+  universalleaderboards.hidden:
+    description: Marks the holder as hidden from leaderboard display.
+    default: false
+  universalleaderboards.exclude:
+    description: Excludes the holder from leaderboard tracking entirely.
+    default: false

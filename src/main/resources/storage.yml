@@ -1,0 +1,14 @@
+storage:
+  # SQLITE | MYSQL
+  type: SQLITE
+
+mysql:
+  host: localhost
+  port: 3306
+  database: leaderboards
+  username: user
+  password: password
+  pool-size: 10
+  ssl: false
+  # Unique identifier for this server, used for multi-server sync conflict resolution.
+  server-id: "server-1"

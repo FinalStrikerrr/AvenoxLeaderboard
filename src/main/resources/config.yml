@@ -1,0 +1,48 @@
+# AvenoxLeaderboard main configuration
+config-version: 1
+
+plugin:
+  name: "Avenox Leaderboard"
+  language: en
+
+performance:
+  # How many players get their placeholder value re-resolved per update cycle.
+  max-player-updates-per-cycle: 100
+  # How long a resolved placeholder value is trusted before re-resolving, in ms.
+  placeholder-cache-ms: 5000
+  # Default seconds between full leaderboard recalculations (overridable per board).
+  leaderboard-refresh-seconds: 30
+  # Batched DB writes per flush.
+  batch-size: 50
+
+cache:
+  enabled: true
+  refresh-interval: 30
+  max-entries: 100
+
+tracking:
+  # Join tracking is always enabled: every joining player is seeded at 0 on enabled boards.
+  # The setting below remains for compatibility with existing configurations.
+  mode: track-on-join
+
+ranking:
+  # COMPETITION (1,2,2,4) | DENSE (1,2,2,3) | ORDINAL (1,2,3,4)
+  mode: COMPETITION
+
+number-format:
+  mode: RAW   # RAW | COMMA | SHORT | COMPACT
+  decimals: 2
+
+currency:
+  symbol: "$"
+  position: BEFORE
+
+logging:
+  debug: false
+  database: false
+  placeholder: false
+  gui: false
+
+heads:
+  enabled: true
+  cache-textures: true
